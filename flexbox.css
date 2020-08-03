@@ -1,0 +1,153 @@
+/*Para utilizar o flexbox deve-se selecionar o pai dos elementos e adicionar o display: flex 
+colocando os itens um ao lado do outro*/
+
+
+/*display: flex para colocar os itens do nav no mesmo lado da logo*/
+/*align items: center para centralizar os itens em relação a logo e o nav bar*/
+/*justify-content: space-between para colocar os itens do nav bar no espaço entre a logo e a area
+a direita preenchendo a pagina*/
+.cabecalhoPrincipal .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cabecalhoPrincipal-nav{
+	display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container {
+	display: flex;
+	justify-content: space-between;
+}
+
+/*space-around para colocar o espaço entre os elementos*/
+.rodapePrincipal-patrocinadores-list {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 70%;
+	margin-right: 5%;
+}
+
+.rodapePrincipal-contatoForm {
+	width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset {
+	display: flex;
+}
+
+/*para alinhar o elementos verticalmente utiliza-se o flex-direction: column; */
+/*flex-wrap diz ao display flex que quando o elemento não couber mais no espaçamento ele deve quebrar a linhar
+e alinhar ao lado*/
+.rodapePrincipal-navMap-list {
+	display: flex;
+	/*
+	flex-direction: column;
+	flex-wrap: wrap;*/
+	flex-flow: column wrap;
+	height: 250px;
+}
+
+.conteudoPrincipal-cursos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.conteudoPrincipal-cursos-link {
+	width: 23%;
+	margin: 1%;
+}
+
+/*nth-child faz a conta dos itens que devem ser alterados no caso os ultimos itens e o primeiro item da linha*/
+.conteudoPrincipal-cursos-link:nth-child(4n) {
+	margin-right: 0;
+}
+
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {
+	margin-left: 0;
+}
+
+.videoSobre .container{
+	display: flex;
+	justify-content: space-between;
+}
+
+/*flex-grow quando tem espaço sobrando no elemento e possivel utilizar o flex-grow para preencher o espaço restante*/
+.videoSobre-sobre {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 2;
+}
+
+.videoSobre-sobre-list {
+	flex-grow: 1;
+}
+
+/*flex-grow aumenta o tamanho do item o esticando ele e dividindo o espaço com os outros itens*/
+/*flex-shrink diminui os elementos de acordo com a tela*/
+.videoSobre-video {
+	flex-grow: 1;
+	flex-shrink: 2;
+}
+
+
+
+/*Aqui começa a responsividade para mobile*/
+@media(max-width: 768px){
+	.cabecalhoPrincipal-nav {
+		flex-direction: column;
+	}
+
+	.cabecalhoPrincipal .container {
+		flex-direction: column;
+		align-items: initial;
+		text-align: center;
+	}
+
+	.conteudoPrincipal-cursos {
+		flex-direction: column;
+	}
+
+	.conteudoPrincipal-cursos-link {
+		width: 100%;
+	}
+
+	.rodapePrincipal-navMap-list {
+		height: auto;
+	}
+
+	.rodapePrincipal-patrocinadores .container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.rodapePrincipal-patrocinadores-list {
+		margin: 0;
+		width: 100%;
+	}
+
+	.rodapePrincipal-contatoForm {
+		width: 100%;
+	}
+
+	.rodapePrincipal-contatoForm-fieldset {
+		justify-content: center;
+	}
+
+	/*Para mover o item de uma posição para outra no caso o ultimo para o primeiro*/
+	.cabecalhoPrincipal-nav-link-app {
+		order: -1;
+	}
+
+	.videoSobre .container {
+		flex-direction: column;
+	}
+
+	.videoSobre-video {
+		margin: 0 auto;
+	}
+}
